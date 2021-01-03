@@ -5,13 +5,28 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MarketObserver.Models;
+using MarketObserver.Business.HttpClients;
+using MarketObserver.Business;
+using MarketObserver.Business.Services;
+using MarketObserver.Business.BusinessLogic;
 
 namespace MarketObserver.Controllers
 {
     public class HomeController : Controller
     {
+        public IStockBusinessLogic _stockBusinessLogic { get; set; }
+
+        public HomeController (IStockBusinessLogic stockBusinessLogic)
+        {
+            this._stockBusinessLogic = stockBusinessLogic;
+        }
+
         public IActionResult Index()
         {
+            var result = this._stockBusinessLogic.CheckStockChanges();
+            //var response = this._marketStackHttpClient.GetIntradayStocks();
+            //var result = this._stockSeedDataService.GetStockSymbols();
+            //var test = result.First();
             return View();
         }
 

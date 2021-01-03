@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.960
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketObserver", "MarketObserver\MarketObserver.csproj", "{026A9A7A-390D-4B08-8E25-E401D30DE3F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketObserver.Web", "MarketObserver\MarketObserver.Web.csproj", "{026A9A7A-390D-4B08-8E25-E401D30DE3F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketObserver.Business", "MarketObserver.Business\MarketObserver.Business.csproj", "{0FEF91F9-F14F-4F34-B0DB-FC8D697A8BF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketObserver.Database", "MarketObserver.Database\MarketObserver.Database.csproj", "{4E90287B-0C79-4C7E-A418-D3BDA09B783B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketObserver.Model", "MarketObserver.Models\MarketObserver.Model.csproj", "{58C5D791-6FE5-4502-A78B-0B01FCDD1850}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{026A9A7A-390D-4B08-8E25-E401D30DE3F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{026A9A7A-390D-4B08-8E25-E401D30DE3F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{026A9A7A-390D-4B08-8E25-E401D30DE3F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FEF91F9-F14F-4F34-B0DB-FC8D697A8BF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FEF91F9-F14F-4F34-B0DB-FC8D697A8BF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FEF91F9-F14F-4F34-B0DB-FC8D697A8BF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FEF91F9-F14F-4F34-B0DB-FC8D697A8BF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E90287B-0C79-4C7E-A418-D3BDA09B783B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E90287B-0C79-4C7E-A418-D3BDA09B783B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E90287B-0C79-4C7E-A418-D3BDA09B783B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E90287B-0C79-4C7E-A418-D3BDA09B783B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58C5D791-6FE5-4502-A78B-0B01FCDD1850}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58C5D791-6FE5-4502-A78B-0B01FCDD1850}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58C5D791-6FE5-4502-A78B-0B01FCDD1850}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58C5D791-6FE5-4502-A78B-0B01FCDD1850}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

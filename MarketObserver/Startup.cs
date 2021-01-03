@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using MarketObserver.Business.HttpClients;
+using MarketObserver.Model.Config;
+using MarketObserver.Web.Autofac;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -16,14 +21,21 @@ namespace MarketObserver
     {
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            var configBuilder = new ConfigurationBuilder()
+                .SetBasePath(Environment.CurrentDirectory)
+                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+            Configuration = configBuilder.Build();
         }
 
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public IServiceProvider ConfigureServices(IServiceCollection services)
         {
+            //services.Configure<IAppConfiguration>(Configuration.GetSection("MyConfig"));
+            services.Configure<MarketObserverConfiguration>(options => Configuration.GetSection("MarketObserver").Bind(options));
+
+
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
@@ -33,6 +45,16 @@ namespace MarketObserver
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+
+
+            var builder = new ContainerBuilder();
+            builder.RegisterModule<ServicesModule>();
+            builder.Populate(services);
+
+
+            var container = builder.Build();
+            return new AutofacServiceProvider(container);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
